@@ -97,17 +97,8 @@ dict_u_p = defaultdict(set)
 for i in range(len(user_input)):
     dict_u_p[user_input[i]].add(item_input[i])
 
-# user_input_test1 = [0] * 12223
-# user_input_test2 = [21107] * 12223
-# user_input_test3 = [23859] * 12223
-# user_input_test4 = [3495] * 12223
-# user_input_test5 = [17198] * 12223
-# user_input_test6 = [86] * 12223
-# user_input_test7 = [264] * 12223
-# user_input_test8 = [11483] * 12223
-# user_input_test9 = [25285] * 12223
-# user_input_test10 = [36220] * 12223
-item_input_test = range(12223)
+
+item_input_test = range(871)
 ground_truth_user = test['user']
 ground_truth_item = test['spot']
 dict_gt = defaultdict(set)
@@ -218,10 +209,10 @@ if __name__ == '__main__':
     ndcg_50 = []
 
     for unique_user in user_exist_unique:
-        user_input_test = [unique_user] * 12223
+        user_input_test = [unique_user] * 871
         test_input = {'user_input': np.array(user_input_test), 'item_input': np.array(item_input_test)}
         pred = model.predict(test_input)[0]
-        all_items = set(range(12223))
+        all_items = set(range(871))
 
         rating = pred
         # user = test_input['user_input'][1]
